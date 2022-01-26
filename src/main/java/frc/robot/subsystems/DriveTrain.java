@@ -4,9 +4,19 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveTrain extends SubsystemBase {
+  Spark driveLeftFront;
+	Spark driveLeftBack;
+	Spark driveRightFront;
+	Spark driveRightBack;
+	SpeedControllerGroup driveLeft;
+	SpeedControllerGroup driveRight;
+	DifferentialDrive drive;
   /** Creates a new ExampleSubsystem. */
   public DriveTrain() {}
 
