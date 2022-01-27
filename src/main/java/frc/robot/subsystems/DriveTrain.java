@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.commands.DriveForward;
 
 public class DriveTrain extends SubsystemBase {
   Spark driveLeftFront;
@@ -18,7 +19,9 @@ public class DriveTrain extends SubsystemBase {
 	SpeedControllerGroup driveRight;
 	DifferentialDrive drive;
   /** Creates a new ExampleSubsystem. */
-  public DriveTrain() {}
+  public DriveTrain() {
+    this.drive = new DifferentialDrive(driveLeft, driveRight);
+  }
 
   @Override
   public void periodic() {
@@ -28,5 +31,16 @@ public class DriveTrain extends SubsystemBase {
   @Override
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
+  }
+  public void arcadeDrive(double xSpeed, double zRotation){
+    drive.arcadeDrive(xSpeed, zRotation);
+  }
+  public void stop(){
+    drive.stopMotor();
+  }
+
+  public void initDefaultCommand(){
+    setDefaultCommand(new DriveForward(new DriveTrain()));
+    //probably a bad idea, passing an object into an object
   }
 }
