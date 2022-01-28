@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.commands.DriveForward;
+import frc.robot.commands.TimedAutonomousArcadeDrive;
 
 public class DriveTrain extends SubsystemBase {
   Spark driveLeftFront;
@@ -40,7 +40,7 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public void initDefaultCommand(){
-    setDefaultCommand(new DriveForward(new DriveTrain(), 1.0));
+    setDefaultCommand(new TimedAutonomousArcadeDrive(new DriveTrain(), 1.0, 1.0, 1.0));
     //probably a bad idea, passing an object into an object
   }
 }

@@ -9,17 +9,21 @@ import frc.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class DriveForward extends CommandBase {
+public class TimedAutonomousArcadeDrive extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final DriveTrain driveTrainSubsystem;
+  private double speed;
+  private double heading;
   
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public DriveForward(DriveTrain subsystem, double time) {
+  public TimedAutonomousArcadeDrive(DriveTrain subsystem, double time, double heading, double speed) {
     driveTrainSubsystem = subsystem;
+    this.heading = heading;
+    this.speed = speed;
     //sets a timer for {time} seconds, program will interrupt once timer is complete
     withTimeout(time);
     // Use addRequirements() here to declare subsystem dependencies.
@@ -34,7 +38,7 @@ public class DriveForward extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    driveTrainSubsystem.arcadeDrive(1.0, 0.0);
+    driveTrainSubsystem.arcadeDrive(speed, heading);
   }
 
   // Called once the command ends or is interrupted.
