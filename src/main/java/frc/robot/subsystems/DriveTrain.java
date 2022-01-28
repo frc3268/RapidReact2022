@@ -40,7 +40,7 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public void initDefaultCommand(){
-    setDefaultCommand(new DriveForward(new DriveTrain()));
+    setDefaultCommand(new DriveForward(new DriveTrain(), 1.0));
     //probably a bad idea, passing an object into an object
   }
 }

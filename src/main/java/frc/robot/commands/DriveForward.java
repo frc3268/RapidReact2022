@@ -18,10 +18,13 @@ public class DriveForward extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public DriveForward(DriveTrain subsystem) {
+  public DriveForward(DriveTrain subsystem, double time) {
     driveTrainSubsystem = subsystem;
+    //sets a timer for {time} seconds, program will interrupt once timer is complete
+    withTimeout(time);
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
+    
   }
 
   // Called when the command is initially scheduled.
@@ -36,7 +39,9 @@ public class DriveForward extends CommandBase {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    driveTrainSubsystem.stop();
+  }
 
   // Returns true when the command should end.
   @Override
