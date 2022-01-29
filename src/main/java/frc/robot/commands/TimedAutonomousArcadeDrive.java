@@ -20,14 +20,14 @@ public class TimedAutonomousArcadeDrive extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public TimedAutonomousArcadeDrive(DriveTrain subsystem, double time, double heading, double speed) {
-    driveTrainSubsystem = subsystem;
+  public TimedAutonomousArcadeDrive(double time, double heading, double speed) {
+    driveTrainSubsystem = new DriveTrain();
     this.heading = heading;
     this.speed = speed;
     //sets a timer for {time} seconds, program will interrupt once timer is complete
     withTimeout(time);
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(subsystem);
+    addRequirements(driveTrainSubsystem);
     
   }
 

@@ -6,7 +6,6 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.JoystickArcadeDrive;
 import frc.robot.commands.TimedAutonomousArcadeDrive;
 import frc.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -21,7 +20,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveTrain driveTrainSubsystem = new DriveTrain();
 
-  private final TimedAutonomousArcadeDrive m_autoCommand = new TimedAutonomousArcadeDrive(driveTrainSubsystem, 1.0, 1.0,
+  private final TimedAutonomousArcadeDrive m_autoCommand = new TimedAutonomousArcadeDrive(1.0, 1.0,
       1.0);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */

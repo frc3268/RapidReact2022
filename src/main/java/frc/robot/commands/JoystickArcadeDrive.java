@@ -19,10 +19,10 @@ public class JoystickArcadeDrive extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public JoystickArcadeDrive(DriveTrain subsystem) {
-    driveTrainSubsystem = subsystem;
+  public JoystickArcadeDrive() {
+    driveTrainSubsystem = new DriveTrain();
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(subsystem);
+    addRequirements(driveTrainSubsystem);
     
   }
 

@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.commands.JoystickArcadeDrive;
+import frc.robot.RobotMap;
 import frc.robot.commands.TimedAutonomousArcadeDrive;
 
 public class DriveTrain extends SubsystemBase {
@@ -18,11 +18,25 @@ public class DriveTrain extends SubsystemBase {
 	Spark driveRightBack;
 	SpeedControllerGroup driveLeft;
 	SpeedControllerGroup driveRight;
-	DifferentialDrive drive;
+  DifferentialDrive drive;
+  boolean isInverted = false;
   /** Creates a new ExampleSubsystem. */
   public DriveTrain() {
+    this.driveLeftFront = new Spark(RobotMap.SPARK_driveLeftFront);
+    this.driveLeftBack = new Spark(RobotMap.SPARK_driveLeftBack);
+    this.driveRightBack = new Spark(RobotMap.SPARK_driveRightBack);
+    this.driveRightFront = new Spark(RobotMap.SPARK_driveRightFront);
+    this.driveLeft = new SpeedControllerGroup(driveLeftFront, driveLeftBack);
+    this.driveRight = new SpeedControllerGroup(driveRightFront, driveRightBack);
     this.drive = new DifferentialDrive(driveLeft, driveRight);
+    this.driveRight.setInverted(true);
+    this.driveLeft.setInverted(true);
   }
+  public void SwapControls()
+	{
+		driveLeft.setInverted(!(driveLeft.getInverted()));
+		driveRight.setInverted(!(driveRight.getInverted()));	
+	}
 
   @Override
   public void periodic() {
@@ -41,7 +55,7 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public void initDefaultCommand(){
-    setDefaultCommand(new TimedAutonomousArcadeDrive(new DriveTrain(), 1.0, 1.0, 1.0));
+    setDefaultCommand(new TimedAutonomousArcadeDrive(1.0, 1.0, 1.0));
     //probably a bad idea, passing an object into an object
   }
 }
