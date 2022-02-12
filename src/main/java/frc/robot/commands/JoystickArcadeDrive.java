@@ -8,6 +8,7 @@ package frc.robot.commands;
 import frc.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.OI;
+import frc.robot.RobotContainer;
 
 /** An example command that uses an example subsystem. */
 public class JoystickArcadeDrive extends CommandBase {
@@ -20,7 +21,7 @@ public class JoystickArcadeDrive extends CommandBase {
    * @param subsystem The subsystem used by this command.
    */
   public JoystickArcadeDrive() {
-    driveTrainSubsystem = new DriveTrain();
+    driveTrainSubsystem = RobotContainer.r_driveTrainSubsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(driveTrainSubsystem);
     

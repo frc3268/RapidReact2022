@@ -23,11 +23,11 @@ public class DriveTrain extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   public DriveTrain() {
     this.driveLeftFront = new Spark(RobotMap.SPARK_driveLeftFront);
-    this.driveLeftBack = new Spark(RobotMap.SPARK_driveLeftBack);
-    this.driveRightBack = new Spark(RobotMap.SPARK_driveRightBack);
+    //this.driveLeftBack = new Spark(RobotMap.SPARK_driveLeftBack);
+    //this.driveRightBack = new Spark(RobotMap.SPARK_driveRightBack);
     this.driveRightFront = new Spark(RobotMap.SPARK_driveRightFront);
-    this.driveLeft = new SpeedControllerGroup(driveLeftFront, driveLeftBack);
-    this.driveRight = new SpeedControllerGroup(driveRightFront, driveRightBack);
+    this.driveLeft = new SpeedControllerGroup(driveLeftFront);
+    this.driveRight = new SpeedControllerGroup(driveRightFront);
     this.drive = new DifferentialDrive(driveLeft, driveRight);
     this.driveRight.setInverted(true);
     this.driveLeft.setInverted(true);

@@ -5,6 +5,7 @@
 
 package frc.robot.commands;
 
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
@@ -21,7 +22,7 @@ public class TimedAutonomousArcadeDrive extends CommandBase {
    * @param subsystem The subsystem used by this command.
    */
   public TimedAutonomousArcadeDrive(double time, double heading, double speed) {
-    driveTrainSubsystem = new DriveTrain();
+    driveTrainSubsystem = RobotContainer.r_driveTrainSubsystem;
     this.heading = heading;
     this.speed = speed;
     //sets a timer for {time} seconds, program will interrupt once timer is complete
