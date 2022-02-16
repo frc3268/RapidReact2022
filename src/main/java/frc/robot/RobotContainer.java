@@ -21,7 +21,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   public static final DriveTrain r_driveTrainSubsystem = new DriveTrain();
 
-  Command m_autoCommand = new TimedAutonomousArcadeDrive(0.5, 0, 0.5).withTimeout(0.5);
+  Command m_autoCommand = new TimedAutonomousArcadeDrive(0.5, 0, 0.5).withTimeout(2);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
