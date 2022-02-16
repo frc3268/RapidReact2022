@@ -26,7 +26,7 @@ public class TimedAutonomousArcadeDrive extends CommandBase {
     this.heading = heading;
     this.speed = speed;
     //sets a timer for {time} seconds, program will interrupt once timer is complete
-    withTimeout(time);
+    //withTimeout(time);
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(driveTrainSubsystem);
     
