@@ -6,6 +6,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.commands.JoystickArcadeDrive;
 import frc.robot.commands.TimedAutonomousArcadeDrive;
 import frc.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -23,6 +24,7 @@ public class RobotContainer {
 
   Command m_autoCommand = new TimedAutonomousArcadeDrive(0.5, 0, 0.5).withTimeout(2);
 
+  Command m_arcadeDriveCommand = new JoystickArcadeDrive();
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
@@ -46,6 +48,9 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
     return m_autoCommand;
+  }
+  public Command getArcadeDriveCommand(){
+    return m_arcadeDriveCommand;
   }
 }
 //3
