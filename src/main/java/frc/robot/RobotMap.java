@@ -2,8 +2,8 @@ package frc.robot;
 
 public class RobotMap {
     //JOYSTICK STUFF
-    public static final int JOYSTICK_PORT = 5;
-	public static final int BIG_CONTROLLER = 6;
+    public static final int JOYSTICK_PORT = 0;
+	public static final int BIG_CONTROLLER = 1;
 
 	public static final int FORWARD = 7;
 
