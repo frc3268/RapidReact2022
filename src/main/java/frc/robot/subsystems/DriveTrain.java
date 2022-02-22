@@ -30,7 +30,7 @@ public class DriveTrain extends SubsystemBase {
     this.driveLeft = new MotorControllerGroup(driveLeftFront);
     this.driveRight = new MotorControllerGroup(driveRightFront);
     this.drive = new DifferentialDrive(driveLeft, driveRight);
-    this.driveRight.setInverted(true);
+    //this.driveRight.setInverted(true);
     this.driveLeft.setInverted(true);
   }
   public void SwapControls()
