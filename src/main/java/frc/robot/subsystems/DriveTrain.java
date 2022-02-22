@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.OI;
 import frc.robot.RobotMap;
 import frc.robot.commands.JoystickArcadeDrive;
 
@@ -19,7 +20,7 @@ public class DriveTrain extends SubsystemBase {
 	MotorControllerGroup driveLeft;
 	MotorControllerGroup driveRight;
   DifferentialDrive drive;
-  public int speedmod = 1;
+  public int speedmod = 1 + (OI.button_one.get() ? 1 : 0);
   boolean isInverted = false;
   /** Creates a new ExampleSubsystem. */
   public DriveTrain() {
