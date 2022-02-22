@@ -19,6 +19,7 @@ public class DriveTrain extends SubsystemBase {
 	MotorControllerGroup driveLeft;
 	MotorControllerGroup driveRight;
   DifferentialDrive drive;
+  public int speedmod = 1;
   boolean isInverted = false;
   /** Creates a new ExampleSubsystem. */
   public DriveTrain() {
@@ -48,7 +49,7 @@ public class DriveTrain extends SubsystemBase {
     // This method will be called once per scheduler run during simulation
   }
   public void arcadeDrive(double xSpeed, double zRotation){
-    drive.arcadeDrive(xSpeed, zRotation);
+    drive.arcadeDrive(xSpeed*speedmod, zRotation);
   }
   public void stop(){
     drive.stopMotor();
