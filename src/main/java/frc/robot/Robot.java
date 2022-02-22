@@ -18,6 +18,7 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   private Command m_arcadeDriveCommand;
   private RobotContainer m_robotContainer;
+  public static OI m_oi;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -25,6 +26,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
+    m_oi = new OI(); 
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();

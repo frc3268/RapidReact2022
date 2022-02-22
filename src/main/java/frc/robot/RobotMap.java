@@ -5,9 +5,7 @@ public class RobotMap {
     public static final int JOYSTICK_PORT = 0;
 	public static final int BIG_CONTROLLER = 1;
 
-	public static final int FORWARD = 7;
-
-	public static final int SHOOTLOAD = 9;
+	public static final int FORWARD = 2;
 
     //SPARK MOTOR CONTROLLERS
     // 4, 5, 6, 7 empty
