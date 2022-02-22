@@ -7,6 +7,7 @@ package frc.robot.commands;
 
 import frc.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.RobotContainer;
 
 /** An example command that uses an example subsystem. */
@@ -40,6 +41,7 @@ public class TurboBoost extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    CommandScheduler.getInstance().schedule(new JoystickArcadeDrive());
     
   }
 
