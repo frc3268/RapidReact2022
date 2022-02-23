@@ -12,8 +12,13 @@ public class Scooper extends SubsystemBase {
   Spark scoopmotor;  
   /** Creates a new ExampleSubsystem. */
   public Scooper() {
+<<<<<<< HEAD
     this.scoopmotor = new Spark(RobotMap.SPARK_scoopBall);
     
+=======
+      this.scoopmotor = new Spark(RobotMap.SPARK_scoopBall);
+
+>>>>>>> 55aacd891e442e560f2700b9867d9a03e603db83
   }
 
   public void setScoop(double speed){
