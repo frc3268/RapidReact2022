@@ -14,7 +14,7 @@ public class Scooper extends SubsystemBase {
 
   }
 
-  public void setScoop(int speed){
+  public void setScoop(double speed){
     scoopmotor.set(speed);
   }
 
