@@ -34,7 +34,7 @@ public class JoystickArcadeDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    driveTrainSubsystem.arcadeDrive(OI.stick.getY(), OI.stick.getX());
+    driveTrainSubsystem.arcadeDrive(OI.stick.getY()*-0.75, OI.stick.getX()*-0.75);
     //change this based on wiring
   }
 
