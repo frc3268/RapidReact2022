@@ -3,16 +3,16 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
-import edu.wpi.first.wpilibj.motorcontrol.Spark;
+import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 
 public class Scooper extends SubsystemBase {
 
-  Spark scoopmotor;  
+  Talon scoopmotor;  
   /** Creates a new ExampleSubsystem. */
   public Scooper() {
-      this.scoopmotor = new Spark(RobotMap.SPARK_scoopBall);
+      this.scoopmotor = new Talon(RobotMap.TALON_scoopBall);
 
   }
 
