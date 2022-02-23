@@ -6,23 +6,23 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.DriveTrain;
-
+import frc.robot.subsystems.Scooper;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 
 /** An example command that uses an example subsystem. */
 public class ScoopBall extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final DriveTrain driveTrainSubsystem;
+  private final Scooper scooperSubsystem;
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
   public ScoopBall() {
-    driveTrainSubsystem = RobotContainer.r_driveTrainSubsystem;
+    scooperSubsystem = RobotContainer.r_ScooperSubsystem;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(driveTrainSubsystem);
+    addRequirements(scooperSubsystem);
     
   }
 

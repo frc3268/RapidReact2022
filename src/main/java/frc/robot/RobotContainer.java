@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.JoystickArcadeDrive;
 import frc.robot.commands.TimedAutonomousArcadeDrive;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Scooper;
 import edu.wpi.first.wpilibj2.command.Command;
 
 //working r
@@ -21,6 +22,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   public static final DriveTrain r_driveTrainSubsystem = new DriveTrain();
+  public static final Scooper r_ScooperSubsystem = new Scooper();
 
   Command m_autoCommand = new TimedAutonomousArcadeDrive(0.5, 0, 0.5).withTimeout(2);
 
