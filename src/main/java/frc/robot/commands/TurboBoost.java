@@ -23,7 +23,7 @@ public class TurboBoost extends CommandBase {
    */
   public TurboBoost(int speedvar) {
     driveTrainSubsystem = RobotContainer.r_driveTrainSubsystem;
-    this.speed = speedvar;
+    this.speed = Math.abs(speedvar);
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(driveTrainSubsystem);
     
