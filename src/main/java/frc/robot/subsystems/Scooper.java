@@ -5,13 +5,15 @@
 package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.RobotMap;
 
 public class Scooper extends SubsystemBase {
 
   Spark scoopmotor;  
   /** Creates a new ExampleSubsystem. */
   public Scooper() {
-
+    this.scoopmotor = new Spark(RobotMap.SPARK_scoopBall);
+    
   }
 
   public void setScoop(double speed){
