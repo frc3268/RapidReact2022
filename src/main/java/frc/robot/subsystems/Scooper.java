@@ -3,12 +3,19 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
+import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Scooper extends SubsystemBase {
+
+  Spark scoopmotor;  
   /** Creates a new ExampleSubsystem. */
   public Scooper() {
 
+  }
+
+  public void setScoop(int speed){
+    scoopmotor.set(speed);
   }
 
   @Override
@@ -21,6 +28,7 @@ public class Scooper extends SubsystemBase {
     // This method will be called once per scheduler run during simulation
   }
   public void stop(){
+    scoopmotor.stopMotor();
   }
 
   public void initDefaultCommand(){

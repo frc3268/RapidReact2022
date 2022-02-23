@@ -11,18 +11,16 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 
 /** An example command that uses an example subsystem. */
-public class TurboBoost extends CommandBase {
+public class ScoopBall extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final DriveTrain driveTrainSubsystem;
-  private final int speed;
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public TurboBoost(int speedvar) {
+  public ScoopBall() {
     driveTrainSubsystem = RobotContainer.r_driveTrainSubsystem;
-    this.speed = Math.abs(speedvar);
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(driveTrainSubsystem);
     
@@ -35,7 +33,7 @@ public class TurboBoost extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    driveTrainSubsystem.speedmod = (driveTrainSubsystem.speedmod == 2) ?  1 : speed;
+    
   }
 
   // Called once the command ends or is interrupted.
@@ -47,8 +45,7 @@ public class TurboBoost extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    System.out.println(driveTrainSubsystem.speedmod == 2);
-    return true;
+      return false;
   }
   
 }
