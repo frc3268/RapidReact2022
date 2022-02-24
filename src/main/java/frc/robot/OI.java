@@ -1,6 +1,7 @@
 package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.*;
+import frc.robot.commands.FullScoop;
 import frc.robot.commands.JoystickArcadeDrive;
 import frc.robot.commands.ScoopBall;
 import frc.robot.commands.TurboBoost;
@@ -19,7 +20,7 @@ public class OI {
         button_one.whenPressed(new TurboBoost(2));
         button_one.whenReleased(new JoystickArcadeDrive());
 
-        button_two.whenPressed(new ScoopBall().withTimeout(2.0));
+        button_two.whenPressed(new FullScoop());
         button_two.whenReleased(new JoystickArcadeDrive());
     }
     
