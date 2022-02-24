@@ -19,7 +19,7 @@ public class OI {
         button_one.whenPressed(new TurboBoost(2));
         button_one.whenReleased(new JoystickArcadeDrive());
 
-        button_two.whenPressed(new ScoopBall());
+        button_two.whenPressed(new ScoopBall().withTimeout(2.0));
         button_two.whenReleased(new JoystickArcadeDrive());
     }
     

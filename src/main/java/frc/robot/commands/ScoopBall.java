@@ -32,13 +32,14 @@ public class ScoopBall extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-      scooperSubsystem.setScoop(1.0);
+      scooperSubsystem.setScoop(0.25);
     
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted){
+    scooperSubsystem.stop();
     
   }
 
