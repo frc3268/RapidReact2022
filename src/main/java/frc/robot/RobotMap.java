@@ -15,4 +15,5 @@ public class RobotMap {
 	public static final int SPARK_driveRightFront = 2;
 	public static final int SPARK_driveRightBack = 2;
 	public static final int TALON_scoopBall = 4;
+	public static final int TALON_shootBall = 5;
 }
