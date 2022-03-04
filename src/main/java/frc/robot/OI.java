@@ -13,6 +13,8 @@ public class OI {
     public static Joystick controller = new Joystick(RobotMap.BIG_CONTROLLER);
     public static Button button_one = new JoystickButton(stick, RobotMap.FORWARD);
     public static Button button_two = new JoystickButton(stick, RobotMap.SCOOPER);
+    public static Button button_three = new JoystickButton(stick, RobotMap.SHOOTER);
+
     
 
     public OI(){
