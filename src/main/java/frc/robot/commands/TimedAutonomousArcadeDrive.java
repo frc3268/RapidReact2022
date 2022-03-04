@@ -7,12 +7,14 @@ package frc.robot.commands;
 
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.DriveTrain;
+import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
 public class TimedAutonomousArcadeDrive extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final DriveTrain driveTrainSubsystem;
+  private final PowerDistribution powerDist;
   private double speed;
   private double heading;
   
@@ -23,6 +25,7 @@ public class TimedAutonomousArcadeDrive extends CommandBase {
    */
   public TimedAutonomousArcadeDrive(double time, double heading, double speed) {
     driveTrainSubsystem = RobotContainer.r_driveTrainSubsystem;
+    powerDist = RobotContainer.r_powerDistributor;
     this.heading = heading;
     this.speed = speed;
     //sets a timer for {time} seconds, program will interrupt once timer is complete

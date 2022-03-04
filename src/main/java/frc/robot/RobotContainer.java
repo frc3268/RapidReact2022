@@ -5,7 +5,9 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.commands.AutoRoutine;
 import frc.robot.commands.JoystickArcadeDrive;
 import frc.robot.commands.TimedAutonomousArcadeDrive;
 import frc.robot.subsystems.DriveTrain;
@@ -25,8 +27,9 @@ public class RobotContainer {
   public static final DriveTrain r_driveTrainSubsystem = new DriveTrain();
   public static final Scooper r_ScooperSubsystem = new Scooper();
   public static final Shooter r_ShooterSubsystem = new Shooter();
+  public static final PowerDistribution r_powerDistributor = new PowerDistribution();
 
-  Command m_autoCommand = new TimedAutonomousArcadeDrive(0.5, 0, 0.5).withTimeout(2);
+  Command m_autoCommand = new AutoRoutine();
 
   Command m_arcadeDriveCommand = new JoystickArcadeDrive();
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
