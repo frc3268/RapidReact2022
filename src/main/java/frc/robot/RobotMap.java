@@ -7,7 +7,8 @@ public class RobotMap {
 
 	public static final int SHOOTER = 1;
 	public static final int FORWARD = 2;
-	public static final int SCOOPER = 3;
+	public static final int SCOOPER_UP = 3;
+	public static final int SCOOPER_DOWN = 4;
 	
 
     //SPARK MOTOR CONTROLLERS

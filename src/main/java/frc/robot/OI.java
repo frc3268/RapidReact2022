@@ -3,6 +3,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.*;
 import frc.robot.commands.FullScoop;
 import frc.robot.commands.JoystickArcadeDrive;
+import frc.robot.commands.ScoopBall;
 import frc.robot.commands.ShootBall;
 import frc.robot.commands.TurboBoost;
 
@@ -12,8 +13,10 @@ public class OI {
     public static Joystick stick = new Joystick(RobotMap.JOYSTICK_PORT);
     public static Joystick controller = new Joystick(RobotMap.BIG_CONTROLLER);
     public static Button button_one = new JoystickButton(stick, RobotMap.FORWARD);
-    public static Button button_two = new JoystickButton(stick, RobotMap.SCOOPER);
+    public static Button button_two = new JoystickButton(stick, RobotMap.SCOOPER_UP);
+    public static Button button_two_s = new JoystickButton(stick, RobotMap.SCOOPER_DOWN);
     public static Button button_three = new JoystickButton(stick, RobotMap.SHOOTER);
+
 
     
 
@@ -22,8 +25,11 @@ public class OI {
         button_one.whenPressed(new TurboBoost(2));
         button_one.whenReleased(new JoystickArcadeDrive());
 
-        button_two.whenPressed(new FullScoop());
+        button_two.whenPressed(new ScoopBall(0.25).withTimeout(0.5));
         button_two.whenReleased(new JoystickArcadeDrive());
+
+        button_two_s.whenPressed(new ScoopBall(-0.25).withTimeout(0.5));
+        button_two_s.whenReleased(new JoystickArcadeDrive());
 
         button_three.whenPressed(new ShootBall(0.5));
         button_three.whenReleased(new JoystickArcadeDrive());
