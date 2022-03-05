@@ -29,10 +29,10 @@ public class OI {
         button_two.whenPressed(new ScoopBall(0.25).withTimeout(0.5));
         button_two.whenReleased(new JoystickArcadeDrive());
 
-        button_two_s.whenPressed(new ScoopBall(-0.25).withTimeout(0.5));
+        button_two_s.whileHeld(new ScoopBall(-0.25).withTimeout(0.001));
         button_two_s.whenReleased(new JoystickArcadeDrive());
 
-        button_three.whenPressed(new ShootBall(0.5));
+    button_three.whenPressed(new ShootBall(-0.25).withTimeout(0.5));
     
 }
 }
