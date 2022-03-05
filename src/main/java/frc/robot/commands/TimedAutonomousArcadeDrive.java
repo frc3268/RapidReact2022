@@ -42,7 +42,7 @@ public class TimedAutonomousArcadeDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    driveTrainSubsystem.arcadeDrive(speed*-0.75, heading*-0.75);
+    driveTrainSubsystem.arcadeDrive(speed, heading);
   }
 
   // Called once the command ends or is interrupted.

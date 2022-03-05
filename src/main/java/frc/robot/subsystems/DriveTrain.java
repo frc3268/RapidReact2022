@@ -50,7 +50,7 @@ public class DriveTrain extends SubsystemBase {
     // This method will be called once per scheduler run during simulation
   }
   public void arcadeDrive(double xSpeed, double zRotation){
-    drive.arcadeDrive(xSpeed*speedmod, zRotation*speedmod);
+    drive.arcadeDrive(xSpeed*speedmod, zRotation);
   }
   public void stop(){
     drive.stopMotor();
