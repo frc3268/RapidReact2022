@@ -19,7 +19,7 @@ public class DriveTrain extends SubsystemBase {
 	MotorControllerGroup driveLeft;
 	MotorControllerGroup driveRight;
   DifferentialDrive drive;
-  public int speedmod = 1;
+  public int speedmod = 3;
   // + (OI.button_one.get() ? 1 : 0);
   boolean isInverted = false;
   /** Creates a new ExampleSubsystem. */
