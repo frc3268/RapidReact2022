@@ -6,8 +6,8 @@ public class FullScoop extends SequentialCommandGroup{
 
     public FullScoop(){
         addCommands(
-            new ScoopBall(0.25).withTimeout(0.5),
-            new ScoopBall(-0.25).withTimeout(0.5)
+            new ScoopBall(-0.25).withTimeout(0.6),
+            new ScoopBall(0.25).withTimeout(0.6)
         );
     }
     
