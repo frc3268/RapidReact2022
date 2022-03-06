@@ -23,7 +23,7 @@ public class TimedAutonomousArcadeDrive extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public TimedAutonomousArcadeDrive(double time, double heading, double speed) {
+  public TimedAutonomousArcadeDrive(double heading, double speed) {
     driveTrainSubsystem = RobotContainer.r_driveTrainSubsystem;
     powerDist = RobotContainer.r_powerDistributor;
     this.heading = heading;
