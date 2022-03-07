@@ -35,7 +35,7 @@ public class TurboBoost extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    driveTrainSubsystem.speedmod = (driveTrainSubsystem.speedmod == 2) ?  1 : speed;
+    driveTrainSubsystem.speedmod = (driveTrainSubsystem.speedmod == 3) ?  1 : speed;
   }
 
   // Called once the command ends or is interrupted.
@@ -47,7 +47,7 @@ public class TurboBoost extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    System.out.println(driveTrainSubsystem.speedmod == 2);
+    System.out.println(driveTrainSubsystem.speedmod == 3);
     return true;
   }
   

@@ -25,7 +25,6 @@ public class OI {
         //Map commands to buttons here
         button_one.whenPressed(new TurboBoost(2));
         //cannot add alongwith due to subsystem conflict
-        button_one.whenReleased(new JoystickArcadeDrive());
 
         button_two.whenPressed(new ScoopBall(0.25).withTimeout(0.5).alongWith(new JoystickArcadeDrive()));
         //button_two.whenReleased(new JoystickArcadeDrive());
