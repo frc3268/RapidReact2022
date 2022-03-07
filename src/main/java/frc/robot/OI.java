@@ -1,28 +1,29 @@
 package frc.robot;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.*;
 import frc.robot.commands.FullScoop;
 import frc.robot.commands.FullShoot;
 import frc.robot.commands.JoystickArcadeDrive;
 import frc.robot.commands.ScoopBall;
+import frc.robot.commands.ScoopFlywheel;
 import frc.robot.commands.ShootBall;
 import frc.robot.commands.TurboBoost;
+import jdk.javadoc.internal.doclets.formats.html.resources.standard;
 
 public class OI {
-    //define buttons using robotmap ports stuff
-    //public static Button jb1 = new JoystickButton(joystick, buttonNumber)
+    // define buttons using robotmap ports stuff
+    // public static Button jb1 = new JoystickButton(joystick, buttonNumber)
     public static Joystick stick = new Joystick(RobotMap.JOYSTICK_PORT);
     public static Joystick controller = new Joystick(RobotMap.BIG_CONTROLLER);
     public static Button button_one = new JoystickButton(stick, RobotMap.FORWARD);
     public static Button button_two = new JoystickButton(stick, RobotMap.SCOOPER_UP);
     public static Button button_two_s = new JoystickButton(stick, RobotMap.SCOOPER_DOWN);
     public static Button button_three = new JoystickButton(stick, RobotMap.SHOOTER);
+    public static Button button_four = new JoystickButton(stick, RobotMap.SCOOPER_FLYWHEEL);
 
-
-    
-
-    public OI(){
-        //Map commands to buttons here
+    public OI() {
+        // Map commands to buttons here
         button_one.whenPressed(new TurboBoost(3));
         button_one.whenReleased(new JoystickArcadeDrive());
 
@@ -34,6 +35,9 @@ public class OI {
 
         button_three.whileHeld(new ShootBall(-0.2).withTimeout(0.001));
         button_three.whenReleased(new JoystickArcadeDrive());
-    
-}
+
+        button_four.whenPressed(new ScoopFlywheel(-1).withTimeout(0.001));
+        button_four.whenReleased(new JoystickArcadeDrive());
+
+    }
 }

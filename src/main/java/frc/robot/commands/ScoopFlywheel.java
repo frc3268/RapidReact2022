@@ -1,7 +1,6 @@
 // Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
-//quick comment to test the githubs
 
 package frc.robot.commands;
 
@@ -9,19 +8,18 @@ import frc.robot.subsystems.Scooper;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 
-/** An example command that uses an example subsystem. */
-public class ScoopBall extends CommandBase {
+public class ScoopFlywheel extends CommandBase {
   @SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
   private final Scooper scooperSubsystem;
-  private final double speed;
+  private final double state;
 
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ScoopBall(double speed) {
-    this.speed = speed;
+  public ScoopFlywheel(double state) {
+    this.state = state;
     scooperSubsystem = RobotContainer.r_ScooperSubsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(scooperSubsystem);
@@ -36,7 +34,7 @@ public class ScoopBall extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    scooperSubsystem.setScoop(speed);
+    scooperSubsystem.setScoopFlywheel(state);
 
   }
 
@@ -52,5 +50,4 @@ public class ScoopBall extends CommandBase {
   public boolean isFinished() {
     return false;
   }
-
 }
