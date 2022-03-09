@@ -42,11 +42,12 @@ public class Robot extends TimedRobot {
     CvSink cvSink = CameraServer.getVideo();
     Mat capture = new Mat();
     cvSink.grabFrame(capture);
+    Imgcodecs.imwrite("image.png", capture);
     Mat grayed = new Mat();
     Imgproc.cvtColor(capture, grayed, Imgproc.COLOR_RGB2HSV);
     Mat redded = new Mat();
     Core.inRange(grayed , new Scalar(0,60,60), new Scalar(0, 100, 100), redded);
-    Imgcodecs.imwrite("C:/[REPLACE_WITH_PATH_PRONGS]", redded);
+    Imgcodecs.imwrite("image.png", redded);
     
     CvSource outputStream = CameraServer.putVideo("Blur", 640, 480);
   }
