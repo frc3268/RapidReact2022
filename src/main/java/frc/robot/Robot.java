@@ -4,7 +4,15 @@
 
 package frc.robot;
 
+import org.opencv.core.Core;
+import org.opencv.core.Mat;
+import org.opencv.core.Scalar;
+import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.imgproc.Imgproc;
+
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.cscore.CvSink;
+import edu.wpi.first.cscore.CvSource;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -31,6 +39,16 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
     CameraServer.startAutomaticCapture();
+    CvSink cvSink = CameraServer.getVideo();
+    Mat capture = new Mat();
+    cvSink.grabFrame(capture);
+    Mat grayed = new Mat();
+    Imgproc.cvtColor(capture, grayed, Imgproc.COLOR_RGB2HSV);
+    Mat redded = new Mat();
+    Core.inRange(grayed , new Scalar(0,60,60), new Scalar(0, 100, 100), redded);
+    Imgcodecs.imwrite("C:/[REPLACE_WITH_PATH_PRONGS]", redded);
+    
+    CvSource outputStream = CameraServer.putVideo("Blur", 640, 480);
   }
 
   /**
