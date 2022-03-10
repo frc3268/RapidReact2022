@@ -41,6 +41,7 @@ public class Robot extends TimedRobot {
     Thread m_visionThread = new Thread(() -> {
       CameraServer.startAutomaticCapture();
       CvSink cvSink = CameraServer.getVideo();
+      CvSource outputStream = CameraServer.putVideo("Blur", 640, 480);
       Mat capture = new Mat();
       while (!Thread.interrupted()){
         if(cvSink.grabFrameNoTimeout(capture) == 0){
@@ -50,8 +51,7 @@ public class Robot extends TimedRobot {
         }
         Imgproc.cvtColor(capture, capture, Imgproc.COLOR_RGB2HSV);
         Core.inRange(capture , new Scalar(0,60,60), new Scalar(0, 100, 100), capture);
-        Imgcodecs.imwrite("image.png", capture);
-        CvSource outputStream = CameraServer.putVideo("Blur", 640, 480);
+        outputStream.putFrame(capture);
       }
     });
     m_visionThread.setDaemon(true);
