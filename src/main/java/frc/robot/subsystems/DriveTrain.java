@@ -34,7 +34,7 @@ public class DriveTrain extends SubsystemBase {
     this.driveRight = new MotorControllerGroup(driveRightFront);
     this.drive = new DifferentialDrive(driveLeft, driveRight);
     //this.driveRight.setInverted(true);
-    CommandScheduler.getInstance().registerSubsystem(RobotContainer.r_driveTrainSubsystem);
+    //CommandScheduler.getInstance().registerSubsystem(RobotContainer.r_driveTrainSubsystem);
     this.driveLeft.setInverted(true);
   }
   public void SwapControls()
