@@ -41,7 +41,7 @@ public class Robot extends TimedRobot {
     CameraServer.startAutomaticCapture();
     CvSink cvSink = CameraServer.getVideo();
     Mat capture = new Mat();
-    cvSink.grabFrame(capture);
+    cvSink.grabFrameNoTimeout(capture);
     Imgcodecs.imwrite("image.png", capture);
     Mat grayed = new Mat();
     Imgproc.cvtColor(capture, grayed, Imgproc.COLOR_RGB2HSV);
