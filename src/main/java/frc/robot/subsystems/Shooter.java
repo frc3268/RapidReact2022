@@ -15,7 +15,7 @@ public class Shooter extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   public Shooter() {
       this.shootmotor = new Talon(RobotMap.TALON_shootBall);
-      CommandScheduler.getInstance().registerSubsystem(RobotContainer.r_ShooterSubsystem);
+      //CommandScheduler.getInstance().registerSubsystem(RobotContainer.r_ShooterSubsystem);
   }
 
   public void setScoop(double speed){
