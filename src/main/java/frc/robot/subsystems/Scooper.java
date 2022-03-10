@@ -15,7 +15,7 @@ public class Scooper extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   public Scooper() {
       this.scoopmotor = new Talon(RobotMap.TALON_scoopBall);
-      CommandScheduler.getInstance().registerSubsystem(RobotContainer.r_ScooperSubsystem);
+      //CommandScheduler.getInstance().registerSubsystem(RobotContainer.r_ScooperSubsystem);
 
   }
 
