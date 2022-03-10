@@ -44,6 +44,7 @@ public class Robot extends TimedRobot {
       Mat capture = new Mat();
       while (!Thread.interrupted()){
         if(cvSink.grabFrame(capture) == 0){
+          //if this still fails, use grabframenotimeout
           System.out.println(cvSink.getError());
           continue;
         }
