@@ -43,7 +43,7 @@ public class Robot extends TimedRobot {
       CvSink cvSink = CameraServer.getVideo();
       Mat capture = new Mat();
       while (!Thread.interrupted()){
-        if(cvSink.grabFrame(capture) == 0){
+        if(cvSink.grabFrameNoTimeout(capture) == 0){
           //if this still fails, use grabframenotimeout
           System.out.println(cvSink.getError());
           continue;
