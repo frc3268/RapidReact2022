@@ -36,9 +36,6 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
-    CommandScheduler.getInstance().registerSubsystem(r_driveTrainSubsystem);
-    CommandScheduler.getInstance().registerSubsystem(r_ShooterSubsystem);
-    CommandScheduler.getInstance().registerSubsystem(r_ScooperSubsystem);
     configureButtonBindings();
   }
   // Hello hi 3 ///

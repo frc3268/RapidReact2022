@@ -4,7 +4,9 @@
 
 package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.RobotContainer;
 import frc.robot.RobotMap;
 
 public class Scooper extends SubsystemBase {
@@ -13,6 +15,7 @@ public class Scooper extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   public Scooper() {
       this.scoopmotor = new Talon(RobotMap.TALON_scoopBall);
+      CommandScheduler.getInstance().registerSubsystem(RobotContainer.r_ScooperSubsystem);
 
   }
 
