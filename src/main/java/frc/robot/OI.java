@@ -27,14 +27,14 @@ public class OI {
         button_one.whenReleased(new JoystickArcadeDrive());
         //cannot add alongwith due to subsystem conflict
 
-        button_two.whenPressed(new ScoopBall(0.25).withTimeout(0.5).alongWith(new JoystickArcadeDrive()));
-        //button_two.whenReleased(new JoystickArcadeDrive());
+        button_two.whenPressed(new ScoopBall(0.25).withTimeout(0.5));
+        button_two.whenReleased(new JoystickArcadeDrive());
 
-        button_two_s.whenPressed(new ScoopBall(-0.25).withTimeout(0.5).alongWith(new JoystickArcadeDrive()));
-        //button_two_s.whenReleased(new JoystickArcadeDrive());
+        button_two_s.whenPressed(new ScoopBall(-0.25).withTimeout(0.5));
+        button_two_s.whenReleased(new JoystickArcadeDrive());
 
-        button_three.whileHeld(new ShootBall(-0.2).withTimeout(0.001).alongWith(new JoystickArcadeDrive()));
-        //button_three.whenReleased(new JoystickArcadeDrive());
+        button_three.whileHeld(new ShootBall(-0.2).withTimeout(0.001));
+        button_three.whenReleased(new JoystickArcadeDrive());
     
 }
 }
