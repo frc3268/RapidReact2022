@@ -38,18 +38,23 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
-    CameraServer.startAutomaticCapture();
-    CvSink cvSink = CameraServer.getVideo();
-    Mat capture = new Mat();
-    cvSink.grabFrameNoTimeout(capture);
-    Imgcodecs.imwrite("image.png", capture);
-    Mat grayed = new Mat();
-    Imgproc.cvtColor(capture, grayed, Imgproc.COLOR_RGB2HSV);
-    Mat redded = new Mat();
-    Core.inRange(grayed , new Scalar(0,60,60), new Scalar(0, 100, 100), redded);
-    Imgcodecs.imwrite("image.png", redded);
-    
-    CvSource outputStream = CameraServer.putVideo("Blur", 640, 480);
+    Thread m_visionThread = new Thread(() -> {
+      CameraServer.startAutomaticCapture();
+      CvSink cvSink = CameraServer.getVideo();
+      Mat capture = new Mat();
+      while (!Thread.interrupted()){
+        if(cvSink.grabFrame(capture) == 0){
+          System.out.println(cvSink.getError());
+          continue;
+        }
+        Imgproc.cvtColor(capture, capture, Imgproc.COLOR_RGB2HSV);
+        Core.inRange(capture , new Scalar(0,60,60), new Scalar(0, 100, 100), capture);
+        Imgcodecs.imwrite("image.png", capture);
+        CvSource outputStream = CameraServer.putVideo("Blur", 640, 480);
+      }
+    });
+    m_visionThread.setDaemon(true);
+    m_visionThread.start();
   }
 
   /**
