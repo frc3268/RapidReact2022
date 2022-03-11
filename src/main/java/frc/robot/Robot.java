@@ -6,16 +6,19 @@ package frc.robot;
 
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
+import org.opencv.core.MatOfPoint;
 import org.opencv.core.Scalar;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
 import edu.wpi.first.cameraserver.CameraServer;
-import edu.wpi.first.cscore.CvSink;
-import edu.wpi.first.cscore.CvSource;
+import edu.wpi.first.cscore.*;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+
+import java.lang.Math;
+import java.util.List;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -43,6 +46,10 @@ public class Robot extends TimedRobot {
       CvSink cvSink = CameraServer.getVideo();
       CvSource outputStream = CameraServer.putVideo("Blur", 640, 480);
       Mat capture = new Mat();
+      Mat hierarchy = new Mat();
+      Mat cannyEdges = new Mat();
+      double area, perim;
+      List<MatOfPoint> contourList = new ArrayList<MatOfPoint>();
       while (!Thread.interrupted()){
         if(cvSink.grabFrameNoTimeout(capture) == 0){
           //if this still fails, use grabframenotimeout
@@ -50,7 +57,10 @@ public class Robot extends TimedRobot {
           continue;
         }
         Imgproc.cvtColor(capture, capture, Imgproc.COLOR_RGB2HSV);
-        Core.inRange(capture , new Scalar(0,60,60), new Scalar(0, 100, 100), capture);
+        Core.inRange(capture , new Scalar(240,50,20), new Scalar(240, 100, 100), capture);
+        Imgproc.findContours(capture, contourList, hierarchy, Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_SIMPLE);
+        area = Imgproc.contourArea(contourList.get(0));
+        perim = Imgproc.arcLength(contourList);
         outputStream.putFrame(capture);
       }
     });
