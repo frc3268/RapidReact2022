@@ -52,8 +52,11 @@ public class Robot extends TimedRobot {
       Mat cannyEdges = new Mat();
       double area,perim;
       List<MatOfPoint> contourList = new ArrayList<MatOfPoint>();
+      while(!Thread.interrupted()){
+        //while loop for testing purposes
         if(cvSink.grabFrameNoTimeout(capture) == 0){
           System.out.println(cvSink.getError());
+          continue;
         }
         Imgproc.cvtColor(capture, capture, Imgproc.COLOR_RGB2GRAY);
         Imgproc.adaptiveThreshold(capture, capture, 200, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 15, 40);
@@ -62,6 +65,7 @@ public class Robot extends TimedRobot {
         area = Imgproc.contourArea(contourList.get(0));
         perim = Imgproc.arcLength(new MatOfPoint2f(contourList.get(0)), false);
         outputStream.putFrame(capture);
+      }
     });
     m_visionThread.setDaemon(true);
     m_visionThread.start();
