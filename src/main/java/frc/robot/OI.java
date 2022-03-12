@@ -21,7 +21,7 @@ public class OI {
 
     public OI(){
         //Map commands to buttons here
-        button_one.whenPressed(new TurboBoost(2));
+        button_one.whenPressed(new TurboBoost(3));
         button_one.whenReleased(new JoystickArcadeDrive());
         //cannot add alongwith due to subsystem conflict
 
