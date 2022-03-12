@@ -7,6 +7,7 @@ package frc.robot;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
+import org.opencv.core.MatOfPoint2f;
 import org.opencv.core.Scalar;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
@@ -18,6 +19,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 import java.lang.Math;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,21 +50,21 @@ public class Robot extends TimedRobot {
       Mat capture = new Mat();
       Mat hierarchy = new Mat();
       Mat cannyEdges = new Mat();
-      double area, perim;
+      double area,perim = 0.0;
       List<MatOfPoint> contourList = new ArrayList<MatOfPoint>();
-      while (!Thread.interrupted()){
         if(cvSink.grabFrameNoTimeout(capture) == 0){
           //if this still fails, use grabframenotimeout
           System.out.println(cvSink.getError());
-          continue;
         }
         Imgproc.cvtColor(capture, capture, Imgproc.COLOR_RGB2HSV);
         Core.inRange(capture , new Scalar(240,50,20), new Scalar(240, 100, 100), capture);
         Imgproc.findContours(capture, contourList, hierarchy, Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_SIMPLE);
         area = Imgproc.contourArea(contourList.get(0));
-        perim = Imgproc.arcLength(contourList);
+        for (MatOfPoint matOfPoint : contourList) {
+          perim += Imgproc.arcLength(new MatOfPoint2f(matOfPoint), false);
+          area += Imgproc.contourArea(new MatOfPoint2f(matOfPoint), false);
+        }
         outputStream.putFrame(capture);
-      }
     });
     m_visionThread.setDaemon(true);
     m_visionThread.start();
