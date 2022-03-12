@@ -53,7 +53,6 @@ public class Robot extends TimedRobot {
       double area,perim;
       List<MatOfPoint> contourList = new ArrayList<MatOfPoint>();
         if(cvSink.grabFrameNoTimeout(capture) == 0){
-          //if this still fails, use grabframenotimeout
           System.out.println(cvSink.getError());
         }
         Imgproc.cvtColor(capture, capture, Imgproc.COLOR_RGB2GRAY);
