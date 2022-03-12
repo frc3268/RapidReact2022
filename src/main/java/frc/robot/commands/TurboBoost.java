@@ -36,7 +36,7 @@ public class TurboBoost extends CommandBase {
   @Override
   public void execute() {
     double correctedspeedmod = Math.abs(driveTrainSubsystem.speedmod);
-    correctedspeedmod = (driveTrainSubsystem.speedmod == 3) ?  1 : driveTrainSubsystem.speedmod*speed;
+    correctedspeedmod = (driveTrainSubsystem.speedmod == 3) ?  driveTrainSubsystem.speedmod/speed : driveTrainSubsystem.speedmod*speed;
   }
 
   // Called once the command ends or is interrupted.
