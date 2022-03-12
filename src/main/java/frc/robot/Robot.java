@@ -58,11 +58,11 @@ public class Robot extends TimedRobot {
         }
         Imgproc.cvtColor(capture, capture, Imgproc.COLOR_RGB2HSV);
         Core.inRange(capture , new Scalar(240,50,20), new Scalar(240, 100, 100), capture);
+        //replace two lines above w/ threshholding code
         Imgproc.findContours(capture, contourList, hierarchy, Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_SIMPLE);
         area = Imgproc.contourArea(contourList.get(0));
         for (MatOfPoint matOfPoint : contourList) {
           perim += Imgproc.arcLength(new MatOfPoint2f(matOfPoint), false);
-          area += Imgproc.contourArea(new MatOfPoint2f(matOfPoint), false);
         }
         outputStream.putFrame(capture);
     });
