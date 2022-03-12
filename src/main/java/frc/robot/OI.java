@@ -1,11 +1,9 @@
 package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.*;
-import frc.robot.commands.FullScoop;
-import frc.robot.commands.FullShoot;
+import frc.robot.commands.IntakeStartCommand;
 import frc.robot.commands.JoystickArcadeDrive;
-import frc.robot.commands.ScoopBall;
-import frc.robot.commands.ShootBall;
+import frc.robot.commands.ShooterStartCommand;
 import frc.robot.commands.TurboBoost;
 
 public class OI {
@@ -27,13 +25,10 @@ public class OI {
         button_one.whenReleased(new JoystickArcadeDrive());
         //cannot add alongwith due to subsystem conflict
 
-        button_two.whenPressed(new ScoopBall(0.25).withTimeout(0.5));
+        button_two.whenPressed(new IntakeStartCommand(0.25).withTimeout(0.5));
         button_two.whenReleased(new JoystickArcadeDrive());
 
-        button_two_s.whenPressed(new ScoopBall(-0.25).withTimeout(0.5));
-        button_two_s.whenReleased(new JoystickArcadeDrive());
-
-        button_three.whileHeld(new ShootBall(-0.5).withTimeout(0.0001));
+        button_three.whileHeld(new ShooterStartCommand(-0.5).withTimeout(0.0001));
         button_three.whenReleased(new JoystickArcadeDrive());
     
 }

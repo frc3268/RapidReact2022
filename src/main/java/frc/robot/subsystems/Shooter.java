@@ -4,9 +4,7 @@
 
 package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
-import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.RobotContainer;
 import frc.robot.RobotMap;
 
 public class Shooter extends SubsystemBase {
@@ -18,7 +16,7 @@ public class Shooter extends SubsystemBase {
       //CommandScheduler.getInstance().registerSubsystem(RobotContainer.r_ShooterSubsystem);
   }
 
-  public void setScoop(double speed){
+  public void setShoot(double speed){
     shootmotor.set(speed);
   }
 

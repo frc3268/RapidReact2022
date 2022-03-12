@@ -10,17 +10,15 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 
 /** An example command that uses an example subsystem. */
-public class ScoopBall extends CommandBase {
+public class IntakeStopCommand extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Scooper scooperSubsystem;
-  private final double speed;
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ScoopBall(double speed) {
-    this.speed = speed;
+  public IntakeStopCommand() {
     scooperSubsystem = RobotContainer.r_ScooperSubsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(scooperSubsystem);
@@ -34,7 +32,7 @@ public class ScoopBall extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-      scooperSubsystem.setScoop(speed);
+      scooperSubsystem.stop();
     
   }
 

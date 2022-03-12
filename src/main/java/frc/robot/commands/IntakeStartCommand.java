@@ -4,25 +4,26 @@
 //quick comment to test the githubs
 
 package frc.robot.commands;
-import frc.robot.subsystems.Shooter;
+
+import frc.robot.subsystems.Scooper;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 
 /** An example command that uses an example subsystem. */
-public class ShootBall extends CommandBase {
+public class IntakeStartCommand extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final Shooter shooterSubsystem;
+  private final Scooper scooperSubsystem;
   private final double speed;
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ShootBall(double speed) {
+  public IntakeStartCommand(double speed) {
     this.speed = speed;
-    shooterSubsystem = RobotContainer.r_ShooterSubsystem;
+    scooperSubsystem = RobotContainer.r_ScooperSubsystem;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(shooterSubsystem);
+    addRequirements(scooperSubsystem);
     
   }
 
@@ -33,14 +34,14 @@ public class ShootBall extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-      shooterSubsystem.setScoop(speed);
+      scooperSubsystem.setScoop(speed);
     
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted){
-    shooterSubsystem.stop();
+    scooperSubsystem.stop();
     
   }
 

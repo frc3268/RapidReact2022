@@ -9,13 +9,10 @@ import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.AutoRoutine;
 import frc.robot.commands.JoystickArcadeDrive;
-import frc.robot.commands.TimedAutonomousArcadeDrive;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Scooper;
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.CommandScheduler;
-
 //working r
 /** 
  * This class is where the bulk of the robot should be declared. Since Command-based is a

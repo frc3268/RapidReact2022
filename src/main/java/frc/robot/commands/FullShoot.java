@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 public class FullShoot extends SequentialCommandGroup{
     public FullShoot(){
-        addCommands(new ShootBall(-0.2).withTimeout(2));
+        addCommands(new ShooterStartCommand(-0.2).withTimeout(2));
     }
     
 }
