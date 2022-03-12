@@ -56,9 +56,9 @@ public class Robot extends TimedRobot {
           //if this still fails, use grabframenotimeout
           System.out.println(cvSink.getError());
         }
-        Imgproc.cvtColor(capture, capture, Imgproc.COLOR_RGB2HSV);
-        Core.inRange(capture , new Scalar(240,50,20), new Scalar(240, 100, 100), capture);
-        //replace two lines above w/ threshholding code
+        Imgproc.cvtColor(capture, capture, Imgproc.COLOR_RGB2GRAY);
+        Imgproc.adaptiveThreshold(capture, capture, 200, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 15, 40);
+        //EDIT THIS-CALIBRATION OF THRESH!
         Imgproc.findContours(capture, contourList, hierarchy, Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_SIMPLE);
         area = Imgproc.contourArea(contourList.get(0));
         perim = Imgproc.arcLength(new MatOfPoint2f(contourList.get(0)), false);
