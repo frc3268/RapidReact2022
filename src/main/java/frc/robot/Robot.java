@@ -50,7 +50,7 @@ public class Robot extends TimedRobot {
       Mat capture = new Mat();
       Mat hierarchy = new Mat();
       Mat cannyEdges = new Mat();
-      double area,perim = 0.0;
+      double area,perim;
       List<MatOfPoint> contourList = new ArrayList<MatOfPoint>();
         if(cvSink.grabFrameNoTimeout(capture) == 0){
           //if this still fails, use grabframenotimeout
@@ -61,9 +61,7 @@ public class Robot extends TimedRobot {
         //replace two lines above w/ threshholding code
         Imgproc.findContours(capture, contourList, hierarchy, Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_SIMPLE);
         area = Imgproc.contourArea(contourList.get(0));
-        for (MatOfPoint matOfPoint : contourList) {
-          perim += Imgproc.arcLength(new MatOfPoint2f(matOfPoint), false);
-        }
+        perim = Imgproc.arcLength(new MatOfPoint2f(contourList.get(0)), false);
         outputStream.putFrame(capture);
     });
     m_visionThread.setDaemon(true);
