@@ -57,8 +57,11 @@ public class Robot extends TimedRobot {
         Imgproc.adaptiveThreshold(capture, capture, 200, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 15, 40);
         //EDIT THIS-CALIBRATION OF THRESH!
         Imgproc.findContours(capture, contourList, hierarchy, Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_SIMPLE);
-        area = Imgproc.contourArea(contourList.get(0));
-        perim = Imgproc.arcLength(new MatOfPoint2f(contourList.get(0)), false);
+        for (MatOfPoint point : contourList) { 
+          area = Imgproc.contourArea(point);
+          perim = Imgproc.arcLength(new MatOfPoint2f(point), true);
+          System.out.println(4*Math.PI*area/Math.pow(perim, 2));
+        }
         outputStream.putFrame(capture);
       }
     });
