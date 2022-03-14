@@ -48,6 +48,7 @@ public class Robot extends TimedRobot {
       double area,perim;
       List<MatOfPoint> contourList = new ArrayList<MatOfPoint>();
       while(!Thread.interrupted()){
+        contourList.clear();
         //while loop for testing purposes
         if(cvSink.grabFrameNoTimeout(capture) == 0){
           System.out.println(cvSink.getError());
