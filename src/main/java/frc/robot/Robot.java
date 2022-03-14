@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.MatOfPoint2f;
@@ -58,9 +59,11 @@ public class Robot extends TimedRobot {
         Imgproc.adaptiveThreshold(capture, capture, 200, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 15, 40);
         //EDIT THIS-CALIBRATION OF THRESH!
         Imgproc.findContours(capture, contourList, hierarchy, Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_SIMPLE);
-        for (MatOfPoint point : contourList) { 
+        for (MatOfPoint point : contourList) {
+          MatOfPoint2f npt = new MatOfPoint2f(); 
+          point.convertTo(npt, CvType.CV_32FC1);
           area = Imgproc.contourArea(point);
-          perim = Imgproc.arcLength(new MatOfPoint2f(point), true);
+          perim = Imgproc.arcLength(npt, true);
           System.out.println(4*Math.PI*area/Math.pow(perim, 2));
         }
         outputStream.putFrame(capture);
