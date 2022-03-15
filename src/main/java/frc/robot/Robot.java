@@ -4,10 +4,12 @@
 
 package frc.robot;
 
+import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.MatOfPoint2f;
+import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 
 import edu.wpi.first.cameraserver.CameraServer;
@@ -55,8 +57,9 @@ public class Robot extends TimedRobot {
           System.out.println(cvSink.getError());
           continue;
         }
+        //Core.inRange(capture, new Scalar(0,50,50), new Scalar(10,255,255), capture);
         Imgproc.cvtColor(capture, capture, Imgproc.COLOR_RGB2GRAY);
-        Imgproc.adaptiveThreshold(capture, capture, 200, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 15, 40);
+        Imgproc.adaptiveThreshold(capture, capture, 150, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 5, 10);
         //EDIT THIS-CALIBRATION OF THRESH!
         Imgproc.findContours(capture, contourList, hierarchy, Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_SIMPLE);
         for (MatOfPoint point : contourList) {
