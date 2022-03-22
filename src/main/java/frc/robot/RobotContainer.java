@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.AutoRoutine;
+import frc.robot.commands.IntakeStartCommand;
 import frc.robot.commands.JoystickArcadeDrive;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Scooper;
@@ -30,10 +31,13 @@ public class RobotContainer {
   Command m_autoCommand = new AutoRoutine();
 
   Command m_arcadeDriveCommand = new JoystickArcadeDrive();
+  Command m_intakeStartCommand = new IntakeStartCommand(5);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+    r_driveTrainSubsystem.setDefaultCommand(m_arcadeDriveCommand);
+    r_ScooperSubsystem.setDefaultCommand(m_intakeStartCommand);
   }
   // Hello hi 3 ///
 

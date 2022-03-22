@@ -12,7 +12,7 @@ public class Scooper extends SubsystemBase {
   Talon scoopmotor;  
   /** Creates a new ExampleSubsystem. */
   public Scooper() {
-      this.scoopmotor = new Talon(RobotMap.TALON_scoopBall);
+      this.scoopmotor = new Talon(RobotMap.TALON_intake);
       //CommandScheduler.getInstance().registerSubsystem(RobotContainer.r_ScooperSubsystem);
 
   }
@@ -35,6 +35,6 @@ public class Scooper extends SubsystemBase {
   }
 
   public void initDefaultCommand(){
-    //probably a bad idea, passing an object into an object
+    
   }
 }
