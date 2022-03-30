@@ -1,9 +1,7 @@
 package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.*;
-import frc.robot.commands.IntakeStartCommand;
 import frc.robot.commands.JoystickArcadeDrive;
-import frc.robot.commands.ShooterStartCommand;
 import frc.robot.commands.TurboBoost;
 
 public class OI {
@@ -12,7 +10,8 @@ public class OI {
     public static Joystick stick = new Joystick(RobotMap.JOYSTICK_PORT);
     public static Joystick controller = new Joystick(RobotMap.BIG_CONTROLLER);
     public static Button button_one = new JoystickButton(stick, RobotMap.FORWARD);
-    public static Button button_three = new JoystickButton(stick, RobotMap.SHOOTER);
+    public static Button button_three = new JoystickButton(stick, RobotMap.INDEX_ONE);
+    public static Button button_four = new JoystickButton(stick, RobotMap.INDEX_BOTH);
 
 
     
@@ -22,8 +21,7 @@ public class OI {
         button_one.whenPressed(new TurboBoost(3));
         button_one.whenReleased(new JoystickArcadeDrive());
         //cannot add alongwith due to subsystem conflict
-        button_three.whileHeld(new ShooterStartCommand(-0.5).withTimeout(0.0001));
-        button_three.whenReleased(new JoystickArcadeDrive());
+        
     
 }
 }
