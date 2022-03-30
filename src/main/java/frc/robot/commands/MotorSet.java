@@ -5,25 +5,24 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.Scooper;
+import frc.robot.subsystems.TalonMotors;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.RobotContainer;
 
 /** An example command that uses an example subsystem. */
-public class IntakeStartCommand extends CommandBase {
+public class MotorSet extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final Scooper scooperSubsystem;
+  private final TalonMotors MotorSubsystem;
   private final double speed;
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public IntakeStartCommand(double speed) {
+  public MotorSet(double speed, TalonMotors subsystem) {
     this.speed = speed;
-    scooperSubsystem = RobotContainer.r_ScooperSubsystem;
+    MotorSubsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(scooperSubsystem);
+    addRequirements(MotorSubsystem);
     
   }
 
@@ -34,14 +33,14 @@ public class IntakeStartCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-      scooperSubsystem.setScoop(speed);
+      MotorSubsystem.setMotor(speed);
     
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted){
-    scooperSubsystem.stop();
+    MotorSubsystem.stop();
     
   }
 

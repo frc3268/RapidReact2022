@@ -8,10 +8,10 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.AutoRoutine;
-import frc.robot.commands.IntakeStartCommand;
 import frc.robot.commands.JoystickArcadeDrive;
+import frc.robot.commands.MotorSet;
 import frc.robot.subsystems.DriveTrain;
-import frc.robot.subsystems.Scooper;
+import frc.robot.subsystems.TalonMotors;
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.Command;
 //working r
@@ -24,20 +24,23 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   public static final DriveTrain r_driveTrainSubsystem = new DriveTrain();
-  public static final Scooper r_ScooperSubsystem = new Scooper();
+  public static final TalonMotors r_ScooperSubsystem = new TalonMotors(RobotMap.TALON_intake);
   public static final Shooter r_ShooterSubsystem = new Shooter();
+  public static final TalonMotors r_indexOneSubsystem = new TalonMotors(RobotMap.TALON_i1);
+  public static final TalonMotors r_indexTwoSubsystsem = new TalonMotors(RobotMap.TALON_i2);
   public static final PowerDistribution r_powerDistributor = new PowerDistribution();
 
   Command m_autoCommand = new AutoRoutine();
 
   Command m_arcadeDriveCommand = new JoystickArcadeDrive();
-  Command m_intakeStartCommand = new IntakeStartCommand(5);
+
+  Command m_scooperSetCommand = new MotorSet(1, r_ScooperSubsystem);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
     r_driveTrainSubsystem.setDefaultCommand(m_arcadeDriveCommand);
-    r_ScooperSubsystem.setDefaultCommand(m_intakeStartCommand);
+    r_ScooperSubsystem.setDefaultCommand(m_scooperSetCommand);
   }
   // Hello hi 3 ///
 
