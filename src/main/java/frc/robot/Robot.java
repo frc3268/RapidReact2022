@@ -117,10 +117,11 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopInit() {
-    // This makes sure that the autonomous stops running when
-    // teleop starts running. If you want the autonomous to
-    // continue until interrupted by another command, remove
-    // this line or comment it out.
+    // Convenience thingy
+    RobotContainer.r_ShooterSubsystem.stop();
+    RobotContainer.r_ScooperSubsystem.stop();
+    RobotContainer.r_indexOneSubsystem.stop();
+    RobotContainer.r_indexTwoSubsystsem.stop();
 
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
