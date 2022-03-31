@@ -9,7 +9,8 @@ public class RobotMap {
 	public static final int FORWARD = 2;
 	public static final int SHOOT = 1;
 	//this is 5 cause its above 3 and easy to reach
-	public static final int INDEX_BOTH = 5;
+	public static final int INDEX_ONE = 5;
+	public static final int INDEX_TWO = 6;
 	
 
     //SPARK MOTOR CONTROLLERS
