@@ -20,7 +20,7 @@ public class Shooter extends SubsystemBase {
   PIDController shootpid;
   private SparkMaxPIDController m_pidController;
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM;
-  boolean isSet;
+  public boolean isSet;
   /** Creates a new ExampleSubsystem. */
   public Shooter(boolean startSet) {
       this.shootmotor = new CANSparkMax(RobotMap.SPARK_shootBall, MotorType.kBrushed);
