@@ -20,8 +20,9 @@ public class Shooter extends SubsystemBase {
   PIDController shootpid;
   private SparkMaxPIDController m_pidController;
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM;
+  boolean isSet;
   /** Creates a new ExampleSubsystem. */
-  public Shooter() {
+  public Shooter(boolean startSet) {
       this.shootmotor = new CANSparkMax(RobotMap.SPARK_shootBall, MotorType.kBrushed);
       this.m_pidController = shootmotor.getPIDController();
       // PID coefficients, tune these based on idk what
@@ -34,6 +35,7 @@ public class Shooter extends SubsystemBase {
       kMinOutput = -1;
       //RPM range for high goal: 3500-5000
       maxRPM = 4500;
+      isSet = startSet;
 
       // set PID coefficients
       m_pidController.setP(kP);
@@ -51,7 +53,15 @@ public class Shooter extends SubsystemBase {
     //m_pidController.setReference(speed*maxRPM, ControlType.kVelocity);
     shootmotor.set(speed);
   }
-
+  public void toggleMotor(double speed){
+    if(isSet==true){
+      stop();
+      isSet = false;
+    }else {
+      setShoot(speed);
+      isSet = true;
+    }
+  }
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

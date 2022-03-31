@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import org.opencv.features2d.FlannBasedMatcher;
+
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.XboxController;
@@ -25,26 +27,26 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   public static final DriveTrain r_driveTrainSubsystem = new DriveTrain();
-  public static final TalonMotors r_ScooperSubsystem = new TalonMotors(RobotMap.TALON_intake);
-  public static final Shooter r_ShooterSubsystem = new Shooter();
-  public static final TalonMotors r_indexOneSubsystem = new TalonMotors(RobotMap.TALON_i1);
-  public static final TalonMotors r_indexTwoSubsystsem = new TalonMotors(RobotMap.TALON_i2);
+  public static final TalonMotors r_ScooperSubsystem = new TalonMotors(RobotMap.TALON_intake, false);
+  public static final Shooter r_ShooterSubsystem = new Shooter(false);
+  public static final TalonMotors r_indexOneSubsystem = new TalonMotors(RobotMap.TALON_i1, false);
+  public static final TalonMotors r_indexTwoSubsystsem = new TalonMotors(RobotMap.TALON_i2, false);
   public static final PowerDistribution r_powerDistributor = new PowerDistribution();
 
   Command m_autoCommand = new AutoRoutine();
 
-  Command m_arcadeDriveCommand = new JoystickArcadeDrive();
+  static Command m_arcadeDriveCommand = new JoystickArcadeDrive();
 
-  Command m_scooperSetCommand = new MotorSet(-0.05, r_ScooperSubsystem);
+  static Command m_scooperSetCommand = new MotorSet(-0.05, r_ScooperSubsystem);
 
-  Command m_shooterSetCommand = new ShooterStartCommand(1);
+  static Command m_shooterSetCommand = new ShooterStartCommand(1);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
     r_driveTrainSubsystem.setDefaultCommand(m_arcadeDriveCommand);
-    r_ScooperSubsystem.setDefaultCommand(m_scooperSetCommand);
-    r_ShooterSubsystem.setDefaultCommand(m_shooterSetCommand);
+    //r_ScooperSubsystem.setDefaultCommand(m_scooperSetCommand);
+    //r_ShooterSubsystem.setDefaultCommand(m_shooterSetCommand);
   }
   // Hello hi 3 ///
 

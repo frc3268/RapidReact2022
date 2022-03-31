@@ -9,8 +9,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class TalonMotors extends SubsystemBase {
 
   Talon motor;  
+  boolean isSet;
   /** Creates a new ExampleSubsystem. */
-  public TalonMotors(int MotorPort) {
+  public TalonMotors(int MotorPort,boolean startSet) {
+      isSet = startSet;
       this.motor = new Talon(MotorPort);
       //CommandScheduler.getInstance().registerSubsystem(RobotContainer.r_ScooperSubsystem);
 
@@ -18,6 +20,16 @@ public class TalonMotors extends SubsystemBase {
 
   public void setMotor(double speed){
     motor.set(speed);
+  }
+
+  public void toggleMotor(double speed){
+    if(isSet==true){
+      stop();
+      isSet = false;
+    }else {
+      setMotor(speed);
+      isSet = true;
+    }
   }
 
   @Override

@@ -5,9 +5,9 @@ public class RobotMap {
     public static final int JOYSTICK_PORT = 0;
 	public static final int BIG_CONTROLLER = 1;
 
-	public static final int INDEX_ONE = 3;
+	public static final int INTAKE = 3;
 	public static final int FORWARD = 2;
-	public static final int INVERT = 4;
+	public static final int SHOOT = 1;
 	//this is 5 cause its above 3 and easy to reach
 	public static final int INDEX_BOTH = 5;
 	

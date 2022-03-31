@@ -33,7 +33,7 @@ public class MotorSet extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-      MotorSubsystem.setMotor(speed);
+      MotorSubsystem.toggleMotor(speed);
     
   }
 

@@ -11,8 +11,8 @@ public class OI {
     //public static Button jb1 = new JoystickButton(joystick, buttonNumber)
     public static Joystick stick = new Joystick(RobotMap.JOYSTICK_PORT);
     public static Joystick controller = new Joystick(RobotMap.BIG_CONTROLLER);
-    public static Button button_one = new JoystickButton(stick, RobotMap.FORWARD);
-    public static Button button_three = new JoystickButton(stick, RobotMap.INDEX_ONE);
+    public static Button button_one = new JoystickButton(stick, RobotMap.SHOOT);
+    public static Button button_three = new JoystickButton(stick, RobotMap.INTAKE);
     public static Button button_four = new JoystickButton(stick, RobotMap.INDEX_BOTH);
 
 
@@ -20,8 +20,8 @@ public class OI {
 
     public OI(){
         //Map commands to buttons here
-        button_one.whenPressed(new TurboBoost(3));
-        button_one.whenReleased(new JoystickArcadeDrive());
+        button_three.whenPressed(RobotContainer.m_scooperSetCommand);
+        button_one.whenPressed(RobotContainer.m_shooterSetCommand);
         button_four.whenPressed(new FullShoot());
         //cannot add alongwith due to subsystem conflict
         
