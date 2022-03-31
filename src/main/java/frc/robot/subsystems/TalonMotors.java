@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class TalonMotors extends SubsystemBase {
 
   Talon motor;  
-  boolean isSet;
+  public boolean isSet;
   /** Creates a new ExampleSubsystem. */
   public TalonMotors(int MotorPort,boolean startSet) {
       isSet = startSet;

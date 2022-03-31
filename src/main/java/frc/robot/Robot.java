@@ -119,10 +119,14 @@ public class Robot extends TimedRobot {
   public void teleopInit() {
     // Convenience thingy
     RobotContainer.r_ShooterSubsystem.stop();
+    RobotContainer.r_ShooterSubsystem.isSet = false;
+    
     RobotContainer.r_ScooperSubsystem.stop();
+    RobotContainer.r_ScooperSubsystem.isSet = false;
     RobotContainer.r_indexOneSubsystem.stop();
+    RobotContainer.r_indexOneSubsystem.isSet = false;
     RobotContainer.r_indexTwoSubsystsem.stop();
-
+    RobotContainer.r_indexTwoSubsystsem.isSet = false;
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
