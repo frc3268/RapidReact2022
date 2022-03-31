@@ -26,9 +26,9 @@ public class Shooter extends SubsystemBase {
       this.m_pidController = shootmotor.getPIDController();
       // PID coefficients, tune these based on idk what
       kP = 6e-5; 
-      kI = 0;
-      kD = 0; 
-      kIz = 0; 
+      kI = 0.0001;
+      kD = 0.0001; 
+      kIz = 0.0001; 
       kFF = 0.000015; 
       kMaxOutput = 1; 
       kMinOutput = -1;
@@ -48,7 +48,8 @@ public class Shooter extends SubsystemBase {
   }
 
   public void setShoot(double speed){
-    m_pidController.setReference(speed*maxRPM, ControlType.kVelocity);
+    //m_pidController.setReference(speed*maxRPM, ControlType.kVelocity);
+    shootmotor.set(speed);
   }
 
   @Override

@@ -1,7 +1,9 @@
 package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.*;
+import frc.robot.commands.FullShoot;
 import frc.robot.commands.JoystickArcadeDrive;
+import frc.robot.commands.ShooterStartCommand;
 import frc.robot.commands.TurboBoost;
 
 public class OI {
@@ -20,6 +22,7 @@ public class OI {
         //Map commands to buttons here
         button_one.whenPressed(new TurboBoost(3));
         button_one.whenReleased(new JoystickArcadeDrive());
+        button_four.whenPressed(new FullShoot());
         //cannot add alongwith due to subsystem conflict
         
     

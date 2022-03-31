@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.AutoRoutine;
 import frc.robot.commands.JoystickArcadeDrive;
 import frc.robot.commands.MotorSet;
+import frc.robot.commands.ShooterStartCommand;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.TalonMotors;
 import frc.robot.subsystems.Shooter;
@@ -34,13 +35,16 @@ public class RobotContainer {
 
   Command m_arcadeDriveCommand = new JoystickArcadeDrive();
 
-  Command m_scooperSetCommand = new MotorSet(1, r_ScooperSubsystem);
+  Command m_scooperSetCommand = new MotorSet(-0.05, r_ScooperSubsystem);
+
+  Command m_shooterSetCommand = new ShooterStartCommand(1);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
     r_driveTrainSubsystem.setDefaultCommand(m_arcadeDriveCommand);
     r_ScooperSubsystem.setDefaultCommand(m_scooperSetCommand);
+    r_ShooterSubsystem.setDefaultCommand(m_shooterSetCommand);
   }
   // Hello hi 3 ///
 

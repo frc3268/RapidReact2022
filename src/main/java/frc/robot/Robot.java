@@ -72,8 +72,8 @@ public class Robot extends TimedRobot {
         outputStream.putFrame(capture);
       }
     });
-    m_visionThread.setDaemon(true);
-    m_visionThread.start();
+    //m_visionThread.setDaemon(true);
+    //m_visionThread.start();
   }
 
   /**le
