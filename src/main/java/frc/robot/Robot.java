@@ -41,6 +41,7 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
+    CameraServer.startAutomaticCapture();
     Thread m_visionThread = new Thread(() -> {
       CameraServer.startAutomaticCapture();
       CvSink cvSink = CameraServer.getVideo();
