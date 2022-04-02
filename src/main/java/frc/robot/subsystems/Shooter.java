@@ -9,6 +9,7 @@ import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.math.controller.PIDController;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 
@@ -61,6 +62,7 @@ public class Shooter extends SubsystemBase {
       setShoot(speed);
       isSet = true;
     }
+    SmartDashboard.putBoolean("Shooter On", isSet);
   }
   @Override
   public void periodic() {
@@ -73,6 +75,8 @@ public class Shooter extends SubsystemBase {
   }
   public void stop(){
     shootmotor.stopMotor();
+    isSet = false;
+    SmartDashboard.putBoolean("Shooter On", isSet);
   }
 
   public void initDefaultCommand(){

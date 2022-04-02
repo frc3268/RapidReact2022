@@ -3,17 +3,22 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
+import java.lang.module.ModuleReader;
+
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class TalonMotors extends SubsystemBase {
 
   Talon motor;  
   boolean isSet;
+  String motorname;
   /** Creates a new ExampleSubsystem. */
-  public TalonMotors(int MotorPort,boolean startSet) {
+  public TalonMotors(int MotorPort,boolean startSet, String name) {
       isSet = startSet;
       this.motor = new Talon(MotorPort);
+      motorname = name;
       //CommandScheduler.getInstance().registerSubsystem(RobotContainer.r_ScooperSubsystem);
 
   }
@@ -30,6 +35,7 @@ public class TalonMotors extends SubsystemBase {
       setMotor(speed);
       isSet = true;
     }
+    SmartDashboard.putBoolean(motorname, isSet);
   }
 
   @Override
@@ -43,6 +49,8 @@ public class TalonMotors extends SubsystemBase {
   }
   public void stop(){
     motor.stopMotor();
+    isSet = false;
+    SmartDashboard.putBoolean(motorname, isSet);
   }
 
   public void initDefaultCommand(){

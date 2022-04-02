@@ -27,10 +27,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   public static final DriveTrain r_driveTrainSubsystem = new DriveTrain();
-  public static final TalonMotors r_ScooperSubsystem = new TalonMotors(RobotMap.TALON_intake, false);
+  public static final TalonMotors r_ScooperSubsystem = new TalonMotors(RobotMap.TALON_intake, false, "Intake");
   public static final Shooter r_ShooterSubsystem = new Shooter(false);
-  public static final TalonMotors r_indexOneSubsystem = new TalonMotors(RobotMap.TALON_i1, false);
-  public static final TalonMotors r_indexTwoSubsystsem = new TalonMotors(RobotMap.TALON_i2, false);
+  public static final TalonMotors r_indexOneSubsystem = new TalonMotors(RobotMap.TALON_i1, false, "Index One");
+  public static final TalonMotors r_indexTwoSubsystsem = new TalonMotors(RobotMap.TALON_i2,false, "Index Two");
   public static final PowerDistribution r_powerDistributor = new PowerDistribution();
 
   Command m_autoCommand = new AutoRoutine();
