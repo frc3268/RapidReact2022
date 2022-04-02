@@ -11,6 +11,7 @@ public class RobotMap {
 	//this is 5 cause its above 3 and easy to reach
 	public static final int INDEX_ONE = 5;
 	public static final int INDEX_TWO = 6;
+	public static final int ALL_ON = 4;
 	
 
     //SPARK MOTOR CONTROLLERS

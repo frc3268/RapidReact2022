@@ -39,7 +39,7 @@ public class RobotContainer {
 
   static Command m_scooperSetCommand = new MotorSet(-0.35, r_ScooperSubsystem);
 
-  static Command m_shooterSetCommand = new ShooterStartCommand(0.9);
+  static Command m_shooterSetCommand = new ShooterStartCommand(1);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings

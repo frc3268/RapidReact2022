@@ -7,7 +7,7 @@ public class AutoRoutine extends SequentialCommandGroup{
     public AutoRoutine(){
         addCommands(
             new FullShoot(),
-            new TimedAutonomousArcadeDrive(0, -1).withTimeout(3),
+            new TimedAutonomousArcadeDrive(0, -1).withTimeout(1),
             new FullShoot()
         );
     }

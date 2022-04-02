@@ -14,7 +14,9 @@ import org.opencv.imgproc.Imgproc;
 
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.cscore.*;
+import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import java.util.ArrayList;
@@ -41,7 +43,14 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
-    CameraServer.startAutomaticCapture();
+    CameraServer.startAutomaticCapture().setResolution(640, 480);
+    SmartDashboard.putString("Button 3", "Intake");
+    SmartDashboard.putString("Button 5", "Index One");
+    SmartDashboard.putString("Button 6", "Index Two");
+    SmartDashboard.putString("Trigger Button", "Shooter");
+    SmartDashboard.putString("Button 4", "Full Shoot Routine");
+    SmartDashboard.putString("Instructions", "3,5,6,Trigger");
+    SmartDashboard.putNumber("Voltage-Batt", RobotController.getBatteryVoltage());
     Thread m_visionThread = new Thread(() -> {
       CameraServer.startAutomaticCapture();
       CvSink cvSink = CameraServer.getVideo();

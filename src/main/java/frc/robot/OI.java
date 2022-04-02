@@ -16,7 +16,7 @@ public class OI {
     public static Button button_three = new JoystickButton(stick, RobotMap.INTAKE);
     public static Button button_four = new JoystickButton(stick, RobotMap.INDEX_ONE);
     public static Button button_five = new JoystickButton(stick, RobotMap.INDEX_TWO);
-
+    public static Button button_all = new JoystickButton(stick, RobotMap.ALL_ON);
 
     
 
@@ -24,10 +24,13 @@ public class OI {
         //Map commands to buttons here
         button_three.whenPressed(RobotContainer.m_scooperSetCommand);
         button_one.whenPressed(RobotContainer.m_shooterSetCommand);
-        button_four.whenPressed(new MotorSet(.5, RobotContainer.r_indexOneSubsystem));
-        button_five.whenPressed(new MotorSet(-.5, RobotContainer.r_indexTwoSubsystsem));
+        button_four.whenPressed(new MotorSet(.35, RobotContainer.r_indexOneSubsystem));
+        button_five.whenPressed(new MotorSet(-.35, RobotContainer.r_indexTwoSubsystsem));
+        button_all.whenPressed(new FullShoot());
+    
         //cannot add alongwith due to subsystem conflict
         
     
 }
 }
+
