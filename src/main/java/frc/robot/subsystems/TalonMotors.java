@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class TalonMotors extends SubsystemBase {
 
-  Talon motor;  
+  Talon motor;
   boolean isSet;
   String motorname;
   /** Creates a new ExampleSubsystem. */

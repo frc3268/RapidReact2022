@@ -24,7 +24,7 @@ public class OI {
         //Map commands to buttons here
         button_three.whenPressed(RobotContainer.m_scooperSetCommand);
         button_one.whenPressed(RobotContainer.m_shooterSetCommand);
-        button_four.whenPressed(new MotorSet(-.5, RobotContainer.r_indexOneSubsystem));
+        button_four.whenPressed(new MotorSet(.5, RobotContainer.r_indexOneSubsystem));
         button_five.whenPressed(new MotorSet(-.5, RobotContainer.r_indexTwoSubsystsem));
         //cannot add alongwith due to subsystem conflict
         

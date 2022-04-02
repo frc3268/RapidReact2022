@@ -122,7 +122,6 @@ public class Robot extends TimedRobot {
     RobotContainer.r_ScooperSubsystem.stop();
     RobotContainer.r_indexOneSubsystem.stop();
     RobotContainer.r_indexTwoSubsystsem.stop();
-
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
