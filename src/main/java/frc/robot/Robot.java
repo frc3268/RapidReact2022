@@ -47,6 +47,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putString("Button 3", "Intake");
     SmartDashboard.putString("Button 5", "Index One");
     SmartDashboard.putString("Button 6", "Index Two");
+    SmartDashboard.putString("Unjam intake", "Press 2 twice");
     SmartDashboard.putString("Trigger Button", "Shooter");
     SmartDashboard.putString("Button 4", "Full Shoot Routine");
     SmartDashboard.putString("Instructions", "3,5,6,Trigger");

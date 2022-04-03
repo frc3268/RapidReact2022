@@ -13,6 +13,7 @@ public class OI {
     public static Joystick stick = new Joystick(RobotMap.JOYSTICK_PORT);
     public static Joystick controller = new Joystick(RobotMap.BIG_CONTROLLER);
     public static Button button_one = new JoystickButton(stick, RobotMap.SHOOT);
+    public static Button unjam_intake = new JoystickButton(stick, RobotMap.FORWARD);
     public static Button button_three = new JoystickButton(stick, RobotMap.INTAKE);
     public static Button button_four = new JoystickButton(stick, RobotMap.INDEX_ONE);
     public static Button button_five = new JoystickButton(stick, RobotMap.INDEX_TWO);
@@ -26,6 +27,7 @@ public class OI {
         button_one.whenPressed(RobotContainer.m_shooterSetCommand);
         button_four.whenPressed(new MotorSet(.35, RobotContainer.r_indexOneSubsystem));
         button_five.whenPressed(new MotorSet(-.35, RobotContainer.r_indexTwoSubsystsem));
+        unjam_intake.whenPressed(new MotorSet(.35, RobotContainer.r_ScooperSubsystem));
         button_all.whenPressed(new FullShoot());
     
         //cannot add alongwith due to subsystem conflict
