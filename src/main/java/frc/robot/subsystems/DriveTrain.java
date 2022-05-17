@@ -5,7 +5,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
-import edu.wpi.first.wpilibj.motorcontrol.Spark;
+import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
@@ -24,10 +24,10 @@ public class DriveTrain extends SubsystemBase {
   boolean isInverted = false;
   /** Creates a new ExampleSubsystem. */
   public DriveTrain() {
-    this.driveLeftFront = new Spark(RobotMap.SPARK_driveLeftFront);
+    this.driveLeftFront = new Talon(RobotMap.SPARK_driveLeftFront);
     //this.driveLeftBack = new Spark(RobotMap.SPARK_driveLeftBack);
     //this.driveRightBack = new Spark(RobotMap.SPARK_driveRightBack);
-    this.driveRightFront = new Spark(RobotMap.SPARK_driveRightFront);
+    this.driveRightFront = new Talon(RobotMap.SPARK_driveRightFront);
     this.driveLeft = new MotorControllerGroup(driveLeftFront);
     this.driveRight = new MotorControllerGroup(driveRightFront);
     this.drive = new DifferentialDrive(driveLeft, driveRight);

@@ -16,6 +16,7 @@ public class RobotMap {
 
     //SPARK MOTOR CONTROLLERS
     // 4, 6, 7 empty
+	//SPARKS F and B are TALONS
 	public static final int SPARK_driveLeftFront = 2;
 	//public static final int SPARK_driveLeftBack = 2;
 	public static final int SPARK_driveRightFront = 1;
