@@ -12,10 +12,10 @@ import frc.robot.RobotMap;
 import frc.robot.commands.JoystickArcadeDrive;
 
 public class DriveTrain extends SubsystemBase {
-  Spark driveLeftFront;
-	Spark driveLeftBack;
-	Spark driveRightFront;
-	Spark driveRightBack;
+  Talon driveLeftFront;
+	Talon driveLeftBack;
+	Talon driveRightFront;
+	Talon driveRightBack;
 	MotorControllerGroup driveLeft;
 	MotorControllerGroup driveRight;
   DifferentialDrive drive;
